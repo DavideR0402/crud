@@ -7,7 +7,7 @@ class ProductValidator(forms.Form):
         Product validator
 
     """
-    producto = forms.CharField(
+    product = forms.CharField(
         max_length=100,
         validators=[
             validators.RegexValidator(

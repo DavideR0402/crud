@@ -19,21 +19,11 @@ def get_product (request):
         :type request: HttpRequest
         :return: Response object
         :rtype: HttpResponse
-    """
-        
+    """        
     try:
-        product = Product.objects.all()
-        
-        data = []
-        for products in product:
-            item = {
-                "id": product.id,
-                "product": products.product,
-                "price": products.price
-            }    
-            data.append(item)
-                            
-        return Response(data)
+        product = Product.objects.all()        
+        serializer = ProductSerializer(product, many=True)               
+        return Response(serializer.data, status=status.HTTP_200_OK)
     except:
         message = {"detail": "No hay productos registrados"}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)  
@@ -57,7 +47,7 @@ def register_product(request):
         data = request.data
         defaults = {
             'product': data.get('product'),
-            'price': data.get('price'),       
+            'price': data.get('price'),           
         }
         
         Assembly = Product.objects.create(**defaults) 
@@ -85,12 +75,13 @@ def update_product(request, pk):
         :rtype: HttpResponse
 
     """
-    try:
+    try:        
         data = request.data
         product_validator = ProductValidator(data)
         if product_validator.is_valid():
             product = Product.objects.get(id=pk)
             product.product = data['product']
+            product.price = data['price']
             product.save()
             serializer = ProductSerializer(product, many=False)
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -99,7 +90,7 @@ def update_product(request, pk):
                 'detail': 'El nombre solo puede contener letras, espacios y acento'}
             return Response(message, status=status.HTTP_400_BAD_REQUEST)
     except:
-        message = {'detail': 'El regimen no existe'}
+        message = {'detail': 'El Producto no existe'}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
     
 
