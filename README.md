@@ -11,8 +11,8 @@ https://github.com/DavideR0402/crud.git
 ```
 ## Rutas,
 
-## User:
-## Register:
+User:
+Register:
 ```bash
 http://3.14.248.236/api/users/register/
 ```
