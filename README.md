@@ -14,11 +14,11 @@ https://github.com/DavideR0402/crud.git
 User:
 Register:
 ```bash
-http://3.14.248.236/api/users/register/
+http://3.14.248.236:8000/api/users/register/
 ```
 ## Login():
 ```bash
-http://3.14.248.236/api/users/login/
+http://3.14.248.236:8000/api/users/login/
 ```
 
 ## Crud:
@@ -26,22 +26,22 @@ http://3.14.248.236/api/users/login/
 
 ## List muestra la lista de nombres de los productos
 ```bash
-http://3.14.248.236/api/crud/list/
+http://3.14.248.236:8000/api/crud/list/
 ```
 
 ## Register: Crea un nuevo registro de producto
 ```bash
-http://3.14.248.236/api/crud/register/
+http://3.14.248.236:8000/api/crud/register/
 ```
 
 ## Update. actualiza los datos de producto
 ```bash
-http://3.14.248.236/api/crud/update/
+http://3.14.248.236:8000/api/crud/update/
 ```
 
 ## Delete: Eliminar un dato de registro
 ```bash
-http://3.14.248.236/api/crud/delete/
+http://3.14.248.236:8000/api/crud/delete/
 ```
 
 # crudexe
