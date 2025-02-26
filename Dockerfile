@@ -8,10 +8,13 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 # Copia el archivo de requerimientos y el archivo de configuración de tu proyecto
 COPY requirements.txt .
+
+RUN pip install setuptools
 
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -22,4 +25,4 @@ COPY . .
 EXPOSE 8000
 
 # Define el comando por defecto para ejecutar cuando se inicie el contenedor
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]

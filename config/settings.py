@@ -27,7 +27,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG', default=True)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['3.14.248.236', 'localhost']
 
 
 # Application definition
@@ -130,7 +130,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = "/static/"
+STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
